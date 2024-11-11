@@ -1,0 +1,13 @@
+<div class="px-4 py-3 grid">
+  <app-card-client
+    *ngFor="let client of paginatedClients"
+    [clientCard]="client"
+    class="col-12 md:col-6 xl:col-3 card-container">
+  </app-card-client>
+</div>
+
+<p-paginator
+  [rows]="8"
+  [totalRecords]="clients.length"
+  (onPageChange)="onPageChange($event)">
+</p-paginator>
