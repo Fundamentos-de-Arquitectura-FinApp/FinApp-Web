@@ -4,9 +4,10 @@ import {Ripple} from 'primeng/ripple';
 import {ClientInterface} from '../../interfaces/client-interface';
 import {ClientsService} from '../../services/clients.service';
 import Swal from 'sweetalert2';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {CardClientComponent} from '../../components/card-client/card-client.component';
 import {PaginatorModule} from 'primeng/paginator';
+import {SkeletonModule} from 'primeng/skeleton';
 
 @Component({
   selector: 'app-client-page',
@@ -16,7 +17,9 @@ import {PaginatorModule} from 'primeng/paginator';
     Ripple,
     NgForOf,
     CardClientComponent,
-    PaginatorModule
+    PaginatorModule,
+    SkeletonModule,
+    NgIf
   ],
   templateUrl: './client-page.component.html',
   styleUrl: './client-page.component.css'
@@ -25,6 +28,7 @@ export class ClientPageComponent implements OnInit {
   private clientService = inject(ClientsService)
   clients: ClientInterface[] = [];
   paginatedClients: ClientInterface[] = [];
+  isLoading: boolean = true;
 
   ngOnInit() {
     this.loadClients();
@@ -35,9 +39,11 @@ export class ClientPageComponent implements OnInit {
       next: (clients) => {
         this.clients = clients;
         this.updatePaginatedClients(0);
+        this.isLoading = false;
       },
       error: (message) => {
-        Swal.fire('Error al cargar los clientes', message, 'error')
+        Swal.fire('Error al cargar los clientes', message, 'error');
+        this.isLoading = false;
       }
     })
   }

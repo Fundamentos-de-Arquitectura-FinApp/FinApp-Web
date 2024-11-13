@@ -1,9 +1,10 @@
 export interface ClientInterface {
-  email: String,
-  names: String,
-  paternalSurname: String,
-  maternalSurname: String,
-  dni: String,
-  phone: String,
-  photo: String
+  id:number,
+  email: string,
+  names: string,
+  paternalSurname: string,
+  maternalSurname: string,
+  dni: string,
+  phone: string,
+  photo: string
 }

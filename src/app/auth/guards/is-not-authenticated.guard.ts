@@ -11,6 +11,5 @@ export const isNotAuthenticatedGuard: CanActivateFn = (route, state) => {
     router.navigateByUrl('/finapp');
     return false;
   }
-
   return true;
 };

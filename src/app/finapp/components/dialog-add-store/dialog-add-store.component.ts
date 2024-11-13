@@ -7,7 +7,7 @@ import {Ripple} from "primeng/ripple";
 import {FileUploadModule} from 'primeng/fileupload';
 import {FormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
-import {UploadImageComponent} from '../upload-image/upload-image.component';
+import {UploadImageComponent} from '../../../shared/components/upload-image/upload-image.component';
 
 @Component({
   selector: 'app-dialog-add-store',
@@ -21,14 +21,11 @@ import {UploadImageComponent} from '../upload-image/upload-image.component';
     FileUploadModule,
     FormsModule,
     NgIf,
-    UploadImageComponent
+    UploadImageComponent,
   ],
   templateUrl: './dialog-add-store.component.html',
   styleUrl: './dialog-add-store.component.css'
 })
 export class DialogAddStoreComponent {
   visibleFormStore: boolean = false;
-
-
-
 }

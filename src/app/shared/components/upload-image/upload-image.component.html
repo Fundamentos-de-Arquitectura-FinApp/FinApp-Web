@@ -1,0 +1,17 @@
+<div class="flex flex-column align-items-center gap-3">
+  <div *ngIf="uploadedImageUrl; else defaultImage" class="flex justify-content-center">
+    <img [src]="uploadedImageUrl" alt="" class="border-circle shadow-2" style="width: 200px; height: 200px;
+      object-fit: cover;border: 2px solid #ddd;"/>
+  </div>
+  <ng-template #defaultImage>
+    <div class="flex justify-content-center">
+      <img src="https://via.placeholder.com/150" alt="" class="border-circle shadow-2" style="width: 200px; height: 200px;
+      object-fit: cover; border: 2px solid #ddd;"/>
+    </div>
+  </ng-template>
+  <label for="imageUpload" class="p-button p-component p-button-rounded p-button-outlined p-button-info">
+    <i class="pi pi-upload mr-2"></i>
+    Seleccionar Imagen
+    <input id="imageUpload" type="file" (change)="onFileSelect($event)" accept="image/*" class="hidden"/>
+  </label>
+</div>

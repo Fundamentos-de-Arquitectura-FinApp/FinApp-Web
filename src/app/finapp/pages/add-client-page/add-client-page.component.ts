@@ -4,14 +4,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import {PrimeTemplate} from 'primeng/api';
 import {Ripple} from 'primeng/ripple';
-import {UploadImageComponent} from '../../components/upload-image/upload-image.component';
+
 import {ClientInterface} from '../../interfaces/client-interface';
 import {ClientsService} from '../../services/clients.service';
 import Swal from 'sweetalert2';
-import {DialogAddStoreComponent} from '../../components/dialog-add-store/dialog-add-store.component';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {NgIf} from '@angular/common';
+import {UploadImageComponent} from '../../../shared/components/upload-image/upload-image.component';
 
 @Component({
   selector: 'app-add-client-page',
@@ -23,17 +23,17 @@ import {NgIf} from '@angular/common';
     PrimeTemplate,
     ReactiveFormsModule,
     Ripple,
-    UploadImageComponent,
-    DialogAddStoreComponent,
     DropdownModule,
     InputTextareaModule,
-    NgIf
+    NgIf,
+    UploadImageComponent
   ],
   templateUrl: './add-client-page.component.html',
   styleUrl: './add-client-page.component.css'
 })
 export class AddClientPageComponent {
   client: ClientInterface = {
+    id:0,
     email: '',
     names: '',
     paternalSurname: '',
@@ -43,6 +43,10 @@ export class AddClientPageComponent {
     photo: ''
   };
   private clientService = inject(ClientsService)
+
+  onImageSelected(url: string): void {
+    this.client.photo = url;
+  }
 
   addClient(): void {
     this.clientService.registerClient(this.client).subscribe({
