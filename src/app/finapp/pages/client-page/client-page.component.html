@@ -1,0 +1,14 @@
+<div class="p-6 grid" *ngIf="!isLoading">
+  <app-card-client *ngFor="let client of paginatedClients"
+                   [clientCard]="client"
+                   class="col-12 md:col-6 xl:col-3 card-container">
+  </app-card-client>
+</div>
+<app-progreess-spinner [isLoading]="isLoading"></app-progreess-spinner>
+<div class="flex justify-content-center">
+  <p-paginator *ngIf="!isLoading"
+               [rows]="8"
+               [totalRecords]="clients.length"
+               (onPageChange)="onPageChange($event)">
+  </p-paginator>
+</div>

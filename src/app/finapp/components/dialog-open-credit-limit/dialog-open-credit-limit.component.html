@@ -1,0 +1,26 @@
+<p-dialog [(visible)]="visibleFormStore" appendTo="body" [modal]="true"
+          [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '52vw'}" header="Editar Método de Pago"
+          [draggable]="false" [resizable]="false">
+  <ng-template pTemplate="header">
+    <div class="flex flex-column gap-2">
+      <h1 class="m-0 text-900 font-semibold text-xl line-height-3">Apertura de cuenta</h1>
+    </div>
+  </ng-template>
+  <form class="flex flex-column gap-3 mt-3">
+    <div>
+      <label for="creditlimit" class="block mb-1 text-color text-base">Límite crediticio (S/.1500)</label>
+      <span class="p-input-icon-left w-full">
+        <i class="pi pi-credit-card"></i>
+        <input name="creditlimit" type="number" class="w-full" id="creditlimit" pInputText placeholder="S/."
+               [(ngModel)]="account.creditLine" min="0"/>
+      </span>
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <div class="flex gap-3 justify-content-end border-top-1 surface-border pt-5">
+      <button pButton pRipple label="Cancelar" (click)="visibleFormStore = false"
+              class="p-button-text text-red-500"></button>
+      <button pButton pRipple label="Aperturar" (click)="openAccount()" class="p-button"></button>
+    </div>
+  </ng-template>
+</p-dialog>

@@ -1,0 +1,29 @@
+<div class="card flex flex-column align-items-center">
+  <h3 class="mb-3">Buscar cliente por DNI</h3>
+
+  <div class="flex justify-content-center w-full px-6 md:w-20rem">
+    <p-autoComplete
+      [(ngModel)]="dni"
+      [suggestions]="filteredClients"
+      (completeMethod)="filterClient($event)"
+      optionLabel="dni"
+      placeholder="Ejem: 87654321"
+      class="w-full">
+      <ng-template let-client pTemplate="item">
+        <div class="flex align-items-center gap-2">
+          <img [src]="client.photo" style="width: 18px" alt=""/>
+          <div>{{ client.names + ' ' + client.paternalSurname + ' ' + client.maternalSurname }}</div>
+        </div>
+      </ng-template>
+    </p-autoComplete>
+  </div>
+
+  <div *ngIf="isAllowedCredit !== null" class="message mt-2 text-green-500 font-bold py-5"
+       [ngClass]="{'text-red-500': !isAllowedCredit, 'text-green-500': isAllowedCredit}">
+    {{ message }}
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message mt-2 text-red-500 font-bold">
+    {{ errorMessage }}
+  </div>
+</div>

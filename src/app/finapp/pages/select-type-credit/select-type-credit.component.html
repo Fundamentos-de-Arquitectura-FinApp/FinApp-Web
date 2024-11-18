@@ -1,0 +1,18 @@
+<div>
+  <div class="field w-full">
+    <p-dropdown
+      [options]="typeCredit"
+      [(ngModel)]="selectedTypeCredit"
+      id="role"
+      placeholder="Selecciona el tipo de crédito">
+    </p-dropdown>
+  </div>
+
+  <div *ngIf="selectedTypeCredit === typeCreditEnum.valueFuture">
+    <app-type-value-future-credit></app-type-value-future-credit>
+  </div>
+
+  <div *ngIf="selectedTypeCredit === typeCreditEnum.annulment">
+    <app-type-annulment-credit></app-type-annulment-credit>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="card p-6">
+  <p-stepper orientation="vertical">
+    <p-stepperPanel header="Buscar Cliente">
+      <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+        <div class="flex flex-column h-12rem">
+          <div class="flex-auto flex justify-content-center align-items-center font-medium">
+            <app-search-dni-client (isAllowedCredit)="onClientCreditEligibility($event)"></app-search-dni-client>
+          </div>
+        </div>
+        <div class="flex py-4">
+          <p-button label="Next" (onClick)="nextCallback.emit()" [disabled]="!isNextButtonEnabled"/>
+        </div>
+      </ng-template>
+    </p-stepperPanel>
+    <p-stepperPanel header="Seleccionar Productos">
+      <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                   let-index="index">
+        <div class="flex flex-column h-auto">
+          <div class="flex-auto flex justify-content-center align-items-center font-medium">
+            <app-pick-list-product></app-pick-list-product>
+          </div>
+        </div>
+        <div class="flex py-4 gap-2">
+          <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()"/>
+          <p-button label="Next" (onClick)="nextCallback.emit()"/>
+        </div>
+      </ng-template>
+    </p-stepperPanel>
+    <p-stepperPanel header="Configuración de Crédito">
+      <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                   let-index="index">
+        <div class="flex flex-column h-auto w-auto">
+          <div class="flex-auto flex justify-content-start align-items-center font-medium">
+            <app-select-type-credit></app-select-type-credit>
+          </div>
+        </div>
+        <div class="flex py-4 gap-2">
+          <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()"/>
+          <p-button label="Next" (onClick)="nextCallback.emit()"/>
+        </div>
+      </ng-template>
+    </p-stepperPanel>
+    <p-stepperPanel header="Vista Previa">
+      <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+        <div class="flex flex-column h-12rem">
+          <div class="flex-auto flex justify-content-center align-items-center font-medium">
+            Content II
+          </div>
+        </div>
+        <div class="flex py-4">
+          <p-button label="Back" (onClick)="prevCallback.emit()"/>
+        </div>
+      </ng-template>
+    </p-stepperPanel>
+  </p-stepper>
+</div>

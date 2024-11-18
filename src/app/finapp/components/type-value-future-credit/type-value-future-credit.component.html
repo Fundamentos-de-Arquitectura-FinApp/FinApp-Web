@@ -1,0 +1,100 @@
+<p-fieldset legend="Pago Inicial" class="font-bold">
+  <div class="mb-4">
+    <label class="block font-medium text-900 mb-2">Valor del Pago (S/.)</label>
+    <p-inputNumber [minFractionDigits]="2" inputId="initialPaymentValue" type="text" class="flex-1" showButtons
+                   [min]="0">
+    </p-inputNumber>
+  </div>
+</p-fieldset>
+
+<p-fieldset legend="Fechas" class="font-bold p-3" styleClass="">
+  <div class="mb-4 flex gap-2">
+
+    <div class="flex-1">
+      <label class="block font-medium text-900 mb-2">Fecha de desembolso</label>
+      <p-calendar [showIcon]="true" [showOnFocus]="false" inputId="annuityQuotaPeriod"></p-calendar>
+    </div>
+
+    <div class="flex-1">
+      <label class="block font-medium text-900 mb-2">Fecha de vencimiento</label>
+      <p-calendar [showIcon]="true" [showOnFocus]="false" inputId="annuityQuotaPeriod"></p-calendar>
+    </div>
+
+
+  </div>
+</p-fieldset>
+
+<p-fieldset legend="Tasa Compensatoria" class="font-bold p-3 h-screen w-screen" >
+  <div class="mb-4 flex gap-4">
+
+    <div class="flex-1">
+      <label class="block font-medium text-900 mb-2">Periodo de Cuotas</label>
+      <div class="field w-full">
+        <p-dropdown [options]="quotaPeriod" [(ngModel)]="selectedQuotaPeriod" id="compensatoryQuotaPeriod"
+                    placeholder="Selecciona el periodo de cuotas"></p-dropdown>
+      </div>
+    </div>
+
+    <div class="flex-1">
+      <label class="block font-medium text-900 mb-2">Tasa (%)</label>
+      <p-inputNumber [minFractionDigits]="2" inputId="compensatoryRate" type="text" class="flex-1" showButtons
+                     [min]="0">
+      </p-inputNumber>
+    </div>
+
+    <div class="flex-1">
+      <label class="block font-medium text-900 mb-2">Tipo de Tasa</label>
+      <div class="field w-full">
+        <p-dropdown [options]="rateTypes" [(ngModel)]="selectedRateType" id="compensatoryRateType"
+                    placeholder="Selecciona el tipo de tasa"></p-dropdown>
+      </div>
+    </div>
+
+    <div class="flex-1">
+      <label class="block font-medium text-900 mb-2">Periodo de Capitalización</label>
+      <div class="field w-full">
+        <p-dropdown [options]="capitalizationPeriods" [(ngModel)]="selectedCapitalizationPeriod"
+                    id="compensatoryCapitalizationPeriod"
+                    placeholder="Selecciona el periodo de capitalización"></p-dropdown>
+      </div>
+    </div>
+
+  </div>
+</p-fieldset>
+
+<p-fieldset legend="Tasa Moratoria" class="font-bold p-3">
+  <div class="mb-4 flex gap-4">
+
+    <div class="flex-1">
+      <label class="block font-medium text-900 mb-2">Periodo de Cuotas</label>
+      <div class="field w-full">
+        <p-dropdown [options]="quotaPeriod" [(ngModel)]="selectedQuotaPeriod" id="moratoriumQuotaPeriod"
+                    placeholder="Selecciona el periodo de cuotas"></p-dropdown>
+      </div>
+    </div>
+
+    <div class="flex-1">
+      <label class="block font-medium text-900 mb-2">Tasa (%)</label>
+      <p-inputNumber [minFractionDigits]="2" inputId="moratoriumRate" type="text" class="flex-1" showButtons [min]="0">
+      </p-inputNumber>
+    </div>
+
+    <div class="flex-1">
+      <label class="block font-medium text-900 mb-2">Tipo de Tasa</label>
+      <div class="field w-full">
+        <p-dropdown [options]="rateTypes" [(ngModel)]="selectedRateType" id="moratoriumRateType"
+                    placeholder="Selecciona el tipo de tasa"></p-dropdown>
+      </div>
+    </div>
+
+    <div class="flex-1">
+      <label class="block font-medium text-900 mb-2">Periodo de Capitalización</label>
+      <div class="field w-full">
+        <p-dropdown [options]="capitalizationPeriods" [(ngModel)]="selectedCapitalizationPeriod"
+                    id="moratoriumCapitalizationPeriod"
+                    placeholder="Selecciona el periodo de capitalización"></p-dropdown>
+      </div>
+    </div>
+
+  </div>
+</p-fieldset>

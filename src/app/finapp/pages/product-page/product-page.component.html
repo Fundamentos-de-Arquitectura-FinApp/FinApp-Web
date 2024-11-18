@@ -1,0 +1,13 @@
+<div *ngIf="!isLoading" class="p-6 grid ">
+  <app-card-product
+    *ngFor="let products of paginatedProducts"
+    [productCard]="products"
+    class="col-12 md:col-6 xl:col-3 card-container">
+  </app-card-product>
+</div>
+<app-progreess-spinner [isLoading]="isLoading"></app-progreess-spinner>
+<p-paginator
+  [rows]="8"
+  [totalRecords]="products.length"
+  (onPageChange)="onPageChange($event)">
+</p-paginator>

@@ -1,0 +1,43 @@
+<div class="p-6">
+  <div class="surface-card px-5 py-3 shadow-2 border-round">
+    <div class="p-4">
+      <app-upload-image></app-upload-image>
+    </div>
+    <ng-template #defaultImage>
+      <div class="flex justify-content-center">
+        <img src="https://via.placeholder.com/150" alt="" class="border-circle shadow-2" style="width: 200px; height: 200px;
+      object-fit: cover; border: 2px solid #ddd;"/>
+      </div>
+    </ng-template>
+    <div class="grid formgrid p-fluid">
+
+      <div class="field mb-4 col-12">
+        <label for="name" class="font-medium text-900">Nombre de la tienda</label>
+        <input id="name" type="text" pInputText [value]="store?.name" readonly>
+      </div>
+
+      <div class="field mb-4 col-12">
+        <label for="nickname2" class="font-medium text-900">R.U.C</label>
+        <input id="nickname2" type="text" pInputText [value]="store?.ruc" readonly>
+      </div>
+
+      <div class="field mb-4 col-12">
+        <label for="email2" class="font-medium text-900">Dirección</label>
+        <input id="email2" type="text" pInputText [value]="store?.address" readonly>
+      </div>
+
+      <div class="field mb-4 col-12">
+        <label for="city2" class="font-medium text-900">Contacto</label>
+        <input id="city2" type="text" pInputText [value]="store?.phone" readonly>
+      </div>
+
+      <div class="col-12 flex flex-row justify-content-end align-items-end lg:align-content-end">
+        <button pButton pRipple label="Editar" class="w-auto mt-3"></button>
+        <ng-container *ngIf="!storeExistence;">
+          <app-dialog-add-store *ngIf="!isLoading"></app-dialog-add-store>
+        </ng-container>
+      </div>
+
+    </div>
+  </div>
+</div>

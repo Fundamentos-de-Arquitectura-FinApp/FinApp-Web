@@ -1,0 +1,27 @@
+<div class="p-6">
+  <div class="surface-card px-5 py-3 shadow-2 border-round">
+    <div class="p-4">
+      <app-upload-image (imageUrl)="onImageSelected($event)"></app-upload-image>
+    </div>
+
+    <div class="grid formgrid p-fluid">
+      <div class="field mb-4 col-12">
+        <label for="name" class="font-medium text-900">Nombre</label>
+        <input id="name" type="text" pInputText placeholder="Inca Kola" [(ngModel)]="product.name"/>
+      </div>
+      <div class="field mb-4 col-12">
+        <label for="description" class="font-medium text-900">Descripción</label>
+        <input id="description" type="text" pInputText
+               placeholder="Bebida gaseosa tradicional peruana, sabor inconfundible y refrescante."
+               [(ngModel)]="product.description"/>
+      </div>
+      <div class="field mb-4 col-12">
+        <label for="price" class="font-medium text-900">Precio</label>
+        <input id="price" type="number" pInputText placeholder="S/. 2.50" [(ngModel)]="product.price" min="0" step="0.10"/>
+      </div>
+    </div>
+    <div class="col-12 flex flex-row justify-content-end align-items-end lg:align-content-end">
+      <button pButton pRipple label="Agregar" class="w-auto mt-3" (click)="addProdcut()"></button>
+    </div>
+  </div>
+</div>

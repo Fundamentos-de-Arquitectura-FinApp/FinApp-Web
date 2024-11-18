@@ -1,0 +1,54 @@
+<div class="px-3">
+  <button pButton pRipple label="Editar" (click)="visibleFormStore = true" class="bg-cyan-500 border-none">
+  </button>
+</div>
+<p-dialog [(visible)]="visibleFormStore" appendTo="body" [modal]="true"
+          [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '52vw'}" header="Editar Método de Pago"
+          [draggable]="false" [resizable]="false">
+  <ng-template pTemplate="header">
+    <div class="flex flex-column gap-2">
+      <h1 class="m-0 text-900 font-semibold text-xl line-height-3">Agregar tu Tienda</h1>
+      <span class="text-600 text-base">Complete la información para agregar tu tienda.</span>
+    </div>
+  </ng-template>
+  <form class="flex flex-column gap-3 mt-3">
+    <div class="flex justify-content-center align-items-center gap-3">
+      <app-upload-image></app-upload-image>
+    </div>
+    <div>
+      <label for="ruc" class="block mb-1 text-color text-base">R.U.C</label>
+      <span class="p-input-icon-left w-full">
+        <i class="pi pi-id-card"></i>
+        <input name="ruc" type="text" class="w-full" id="ruc" pInputText placeholder="10164090588"/>
+      </span>
+    </div>
+    <div>
+      <label for="name" class="block mb-1 text-color text-base">Nombre</label>
+      <span class="p-input-icon-left w-full">
+        <i class="pi pi-id-card"></i>
+        <input name="name" type="text" class="w-full" id="name" pInputText placeholder="WowzaStore"/>
+      </span>
+    </div>
+    <div>
+      <label for="email" class="block mb-1 text-color text-base">Correo Electrónico</label>
+      <span class="p-input-icon-left w-full">
+        <i class="pi pi-envelope"></i>
+        <input name="email" type="text" class="w-full" id="email" pInputText placeholder="correo@dominio.com"/>
+      </span>
+    </div>
+    <div>
+      <label for="address" class="block mb-1 text-color text-base">Ubicación</label>
+      <span class="p-input-icon-left w-full">
+        <i class="pi pi-phone"></i>
+        <input name="address" type="text" class="w-full" id="address" pInputText
+               placeholder="Av. Brasil N° 778 Int.302 C.C. La Rambla Brasil"/>
+      </span>
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <div class="flex gap-3 justify-content-end border-top-1 surface-border pt-5">
+      <button pButton pRipple label="Cancelar" (click)="visibleFormStore = false" class="p-button-text"></button>
+      <button pButton pRipple label="Agregar" (click)="visibleFormStore = false" class="p-button"></button>
+    </div>
+  </ng-template>
+</p-dialog>

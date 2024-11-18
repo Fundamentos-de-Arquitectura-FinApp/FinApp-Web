@@ -1,0 +1,24 @@
+<div class="card">
+  <p-table
+    [value]="creditPreview"
+    styleClass="p-datatable-gridlines"
+    [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Tipo de crédito</th>
+        <th>Saldo</th>
+        <th>Pago Inicial</th>
+        <th>Saldo Restante</th>
+        <th>Fecha de desembolso</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-creditPreview>
+      <tr>
+        <td>{{ creditPreview.type }}</td>
+        <td>{{ creditPreview.name }}</td>
+        <td>{{ creditPreview.category }}</td>
+        <td>{{ creditPreview.quantity }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

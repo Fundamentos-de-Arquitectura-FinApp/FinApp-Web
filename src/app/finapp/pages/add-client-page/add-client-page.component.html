@@ -1,0 +1,39 @@
+<div class="p-6">
+  <div class="surface-card px-5 py-3 shadow-2 border-round">
+    <div class="p-4">
+      <app-upload-image (imageUrl)="onImageSelected($event)"></app-upload-image>
+    </div>
+    <div class="grid formgrid p-fluid">
+      <div class="field mb-4 col-12">
+        <label for="names" class="font-medium text-900">Nombres</label>
+        <input id="names" type="text" pInputText placeholder="Juan Carlos" [(ngModel)]="client.names" />
+      </div>
+      <div class="field mb-4 col-12 md:col-6">
+        <label for="paternalSurname" class="font-medium text-900">Apellido Paterno</label>
+        <input id="paternalSurname" type="text" pInputText placeholder="Jiménez">
+      </div>
+      <div class="field mb-4 col-12 md:col-6">
+        <label for="maternalSurname" class="font-medium text-900">Apellido Materno</label>
+        <input id="maternalSurname" type="text" pInputText placeholder="Cordero">
+      </div>
+
+      <div class="field mb-4 col-12">
+        <label for="dni" class="font-medium text-900">DNI</label>
+        <input id="dni" type="text" pInputText placeholder="87654321" [(ngModel)]="client.dni" />
+      </div>
+
+      <div class="field mb-4 col-12">
+        <label for="email" class="font-medium text-900">Correo Electrónico</label>
+        <input id="email" type="text" pInputText placeholder="correo@dominio.com" [(ngModel)]="client.email" />
+      </div>
+
+      <div class="field mb-4 col-12">
+        <label for="phone" class="font-medium text-900">Teléfono</label>
+        <input id="phone" type="text" pInputText placeholder="912345678" [(ngModel)]="client.phone" />
+      </div>
+      <div class="col-12 flex flex-row justify-content-end align-items-end lg:align-content-end">
+        <button pButton pRipple label="Agregar" class="w-auto mt-3" (click)="addClient()"></button>
+      </div>
+    </div>
+  </div>
+</div>
