@@ -1,1 +1,22 @@
-<p>notification-page works!</p>
+<div class="p-grid p-6 p-dir-col p-align-center">
+  <div class="p-col-12 py-2" *ngFor="let notification of paginatedNotifications">
+    <p-card class="ui-card-shadow" [header]="mensajeTitle" [subheader]="notification.date">
+      <ng-template pTemplate="content">
+        <p>{{ notification.message }}</p>
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <div class="p-d-flex p-jc-between">
+          <button pButton type="button" label="Ver más" icon="pi pi-info-circle" class="p-button-text"></button>
+          <button pButton type="button" label="Cerrar" icon="pi pi-times" class="p-button-text p-button-danger"></button>
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+</div>
+
+<p-paginator
+  [rows]="rowsPerPage"
+  [totalRecords]="notifications.length"
+  (onPageChange)="paginate($event)"
+  styleClass="p-mt-3">
+</p-paginator>

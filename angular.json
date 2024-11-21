@@ -36,8 +36,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1.2mb",
+                  "maximumError": "1.5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -73,6 +73,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+
             "polyfills": [
               "zone.js",
               "zone.js/testing"
